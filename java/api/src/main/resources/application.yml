@@ -95,6 +95,7 @@ app:
 
 spring:
   profiles: dev
+
   devtools:
     restart:
       enabled: true
@@ -114,6 +115,7 @@ swagger:
 
 spring:
   profiles: local
+
   devtools:
     restart:
       enabled: true
@@ -133,7 +135,7 @@ spring:
         stringtype: unspecified
 
 server:
-  port: ${API_PORT:8081}
+  port: ${API_PORT:8080}
 
 environment:
   servers:
@@ -144,4 +146,30 @@ swagger:
   info:
     title: CompreFace - API
     version: 0.0.2-SNAPSHOT
+
+---
+
+spring:
+  profiles: damien
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: false
+
+  datasource-pg:
+    driver-class-name: org.postgresql.Driver
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/frs}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+    continue-on-error: true
+    hikari:
+      maximum-pool-size: 3
+      minimum-idle: 3
+      data-source-properties:
+        stringtype: unspecified
+
+server:
+  port: ${API_PORT:8080}
 

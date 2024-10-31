@@ -4,20 +4,21 @@
     <script src="https://unpkg.com/notie"></script>
     <script src="https://unpkg.com/reconnecting-websocket@4.2.0/dist/reconnecting-websocket-iife.js"></script>
 
-    <title>test</title>
+    <title>Digital Travel Lane</title>
 </head>
 <body>
-<label for="apiKey">API key:</label><input id="apiKey" value='156e3914-54c6-4bdb-91db-8b85d0116553'/>
+<label for="apiKey">API key:</label><input id="apiKey" value='a389f6ab-5749-4637-8b48-24293cd90404'/>
 <button onclick="overlay()">overlay</button>
 <video class='video-stream' id="stream0" autoplay="true" muted="true" playsinline style="display:none;"></video>
 <input id="protocol" value="ws"></input>
-<input id="hostname" value="10.0.0.218"></input>
+<input id="hostname" value="127.0.0.1"></input>
 <input id="port" value="1984"></input>
-<input id="endpoint" value="/api/ws?src=demo1"></input>
+<input id="endpoint" value="/api/ws?src=axis-camera"></input>
 <input id="incomingMsgOutput" value=""></input>
 <canvas width="640" id="canvas" height="480" style="display:none;"></canvas>
 <div id="canvas-container" style="width: 100%; text-align:center; margin: auto;">
-    <canvas width="640" id="canvas2" height="480" style="position:fixed;left:10%;top:10%;width:80%;height:80%;"></canvas>
+    <canvas width="640" id="canvas2" height="480"
+            style="position:fixed;left:10%;top:10%;width:80%;height:80%;"></canvas>
 </div>
 
 <button type="button" class="btn btn-primary p-2 flex-grow-1" id="btnConnect" onclick="onConnectClick()">
@@ -30,7 +31,9 @@
     Send Message
 </button>
 <select id="wsmessage" class="form-select">
-    <option value='{"type":"mse","value":"avc1.640029,avc1.64002A,avc1.640033,hvc1.1.6.L153.B0,mp4a.40.2,mp4a.40.5,flac,opus"}' selected="selected">Start</option>
+    <option value='{"type":"webrtc","value":"H264"}'
+            selected="selected">Start
+    </option>
     <option value="stop">Stop</option>
 </select>
 <div class="d-flex text-light me-2" id="status"></div>
@@ -286,7 +289,7 @@
                     let fd = new FormData();
                     fd.append('file', blob, "blob.jpeg");
 
-                    fetch('http://10.0.0.127:8000/api/v1/recognition/recognize',
+                    fetch('http://127.0.0.1:8000/api/v1/recognition/recognize',
                         {
                             method: "POST",
                             headers: {

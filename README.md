@@ -223,4 +223,3 @@ For more information, visit our [contributing](CONTRIBUTING.md) guide, or create
 # License info 
 
 CompreFace is open-source real-time facial recognition software released under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.html).
-# compreface-dtl
