@@ -50,6 +50,8 @@ public class SubjectDao {
         embeddingRepository.deleteBySubjectId(subject.getId());
         imgRepository.deleteBySubjectId(subject.getId());
         subjectRepository.delete(subject);
+        /* SITA MCoE - remove SubjectDetail pointed to by UPK */
+        subjectDetailsRepository.deleteByUpk(subjectName);
 
         return subject;
     }

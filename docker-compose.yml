@@ -1,4 +1,6 @@
 # version: '3.4'
+networks:
+  app-network:
 
 volumes:
   postgres-data:

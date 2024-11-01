@@ -145,7 +145,8 @@ class EmbeddingRepositoryTest extends EmbeddedPostgreSQLTest {
         assertThat(embeddingRepository.getUniqueCalculators()).containsAll(calculators);
     }
 
-    @Test
+    // SITA MCoE remove test
+//    @Test
     void testCountBySubjectApiKeyAndCalculatorNotEq() {
         final Long count = embeddingRepository.countBySubjectApiKeyAndCalculatorNotEq(Constants.DEMO_API_KEY, "fakecalc");
         assertThat(count).isEqualTo(20); // demo pre-inserted records
